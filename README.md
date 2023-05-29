@@ -25,6 +25,8 @@ Note: that the library needs a one-time initialisation by providing it the assem
 
 See [FormClient.cs](https://github.com/weesleekit/EasySteamSockets/blob/main/EasySteamSocketsExample/Forms/FormClient.cs) for a fully worked example. The code snippets below are taken from this class.
 
+Note that for byte type payloads that might be sent often, it is possible to re-use messages.
+
 ```
 {
     PlayerPositionUpdateMessage playerPositionUpdateMessage = new()
@@ -40,6 +42,8 @@ See [FormClient.cs](https://github.com/weesleekit/EasySteamSockets/blob/main/Eas
 
 ## Receiving a message
 
+Note that the received messages are reused the next time the same type is received therefore don't keep a reference to it.
+
 ```
 {   
     client?.Events.Subscribe<ChatMessage>(ChatMessageReceived);
@@ -47,7 +51,7 @@ See [FormClient.cs](https://github.com/weesleekit/EasySteamSockets/blob/main/Eas
 
 private void ChatMessageReceived(ChatMessage chatMessage)
 {
-    // Consume chatMessage here. Note that the chatMessage is recycled so don't keep a reference to it.
+    // Consume chatMessage here.
 }
 
 ```

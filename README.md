@@ -11,8 +11,6 @@ EasySteamSockets is a library that builds on the Steam socket server networking 
 
 # How to use
 
-See [FormClient.cs](https://github.com/weesleekit/EasySteamSockets/blob/main/EasySteamSocketsExample/Forms/FormClient.cs) for a fully worked example. The code snippets below are taken from this class.
-
 ## Initial Setup
 
 Note: that the library needs a one-time initialisation by providing it the assembly that has the payloads defined in it.
@@ -24,6 +22,8 @@ Note: that the library needs a one-time initialisation by providing it the assem
 ```
 
 ## Sending a message
+
+See [FormClient.cs](https://github.com/weesleekit/EasySteamSockets/blob/main/EasySteamSocketsExample/Forms/FormClient.cs) for a fully worked example. The code snippets below are taken from this class.
 
 ```
 {

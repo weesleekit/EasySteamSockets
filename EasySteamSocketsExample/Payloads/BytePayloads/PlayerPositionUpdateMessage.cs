@@ -15,11 +15,11 @@ namespace EasySteamSocketsExample.Payloads.BytePayloads
 
         // Overrides
 
-        public override void Serialise(BinarySerialiser writer)
+        public override void Serialise(BinarySerialiser serialiser)
         {
-            writer.Serialise(ref Id);
-            writer.Serialise(ref X);
-            writer.Serialise(ref Y);
+            serialiser.Serialise(ref Id);
+            serialiser.Serialise(ref X);
+            serialiser.Serialise(ref Y);
         }
     }
 }

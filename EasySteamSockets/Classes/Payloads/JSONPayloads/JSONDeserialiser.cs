@@ -18,7 +18,6 @@ namespace EasySteamSockets.Classes.Payloads.JSONPayloads
 
         internal static AbstractPayload? GetPayloadFromIntPtr(IntPtr ptr, int size)
         {
-            // Copy the unmanaged memory to managed memory
             byte[] byteArray = new byte[size];
             Marshal.Copy(ptr, byteArray, 0, size);
 
@@ -30,7 +29,6 @@ namespace EasySteamSockets.Classes.Payloads.JSONPayloads
                 stream.Seek(0, SeekOrigin.Begin);
                 byte header = (byte)stream.ReadByte();
 
-                // Get the class name
                 string? className = reader.ReadLine();
 
                 if (className == null)

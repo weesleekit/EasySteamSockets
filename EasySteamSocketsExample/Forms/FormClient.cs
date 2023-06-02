@@ -31,16 +31,10 @@ namespace EasySteamSocketsExample.Forms
         {
             if (InvokeRequired)
             {
-                Invoke(new Action(() => UpdateChat(chatMessage)));
+                Invoke(new Action(() => ChatMessageReceived(chatMessage)));
+                return;
             }
-            else
-            {
-                UpdateChat(chatMessage);
-            }
-        }
 
-        private void UpdateChat(ChatMessage chatMessage)
-        {
             richTextBoxChat.SelectionColor = System.Drawing.Color.FromArgb(chatMessage.ColourARGB);
             richTextBoxChat.AppendText("Server:");
             richTextBoxChat.AppendText(chatMessage.Message);
@@ -114,7 +108,6 @@ namespace EasySteamSocketsExample.Forms
 
         private void PictureBoxPlayerCanvas_MouseClick(object sender, MouseEventArgs e)
         {
-            // Add logic to draw a small circle at the clicked position
             int radius = 5;
             int x = e.X - radius;
             int y = e.Y - radius;

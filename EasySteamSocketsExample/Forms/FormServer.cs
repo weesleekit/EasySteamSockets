@@ -38,16 +38,10 @@ namespace EasySteamSocketsExample.Forms
         {
             if (InvokeRequired)
             {
-                Invoke(new Action(() => UpdateChat(chatMessage)));
+                Invoke(new Action(() => ChatMessageReceived(chatMessage)));
+                return;
             }
-            else
-            {
-                UpdateChat(chatMessage);
-            }
-        }
 
-        private void UpdateChat(ChatMessage chatMessage)
-        {
             richTextBoxChat.SelectionColor = System.Drawing.Color.FromArgb(chatMessage.ColourARGB);
             richTextBoxChat.AppendText("Client:");
             richTextBoxChat.AppendText(chatMessage.Message);
@@ -59,16 +53,10 @@ namespace EasySteamSocketsExample.Forms
         {
             if (InvokeRequired)
             {
-                Invoke(new Action(() => UpdatePlayerPosition(playerPositionUpdateMessage)));
+                Invoke(new Action(() => PlayerPositionUpdateMessageReceived(playerPositionUpdateMessage)));
+                return;
             }
-            else
-            {
-                UpdatePlayerPosition(playerPositionUpdateMessage);
-            }
-        }
-
-        private void UpdatePlayerPosition(PlayerPositionUpdateMessage playerPositionUpdateMessage)
-        {
+            
             int radius = 5;
             int x = (int)playerPositionUpdateMessage.X - radius;
             int y = (int)playerPositionUpdateMessage.Y - radius;

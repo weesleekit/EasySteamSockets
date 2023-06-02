@@ -42,6 +42,11 @@ Note that for byte type payloads that might be sent often, it is possible to re-
 
 ## Receiving a message
 
+Periodically call Receive on the client or server as appropriate e.g.
+```
+    client?.Receive();
+    server?.Receive();
+```
 Note that the received messages are reused the next time the same type is received therefore don't keep a reference to it.
 
 ```

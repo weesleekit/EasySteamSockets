@@ -4,6 +4,7 @@ using EasySteamSockets.Classes;
 using EasySteamSockets;
 using EasySteamSocketsExample.Payloads.JSONPayloads;
 using EasySteamSocketsExample.Payloads.BytePayloads;
+using System.Security.Principal;
 
 namespace EasySteamSocketsExample.Forms
 {
@@ -34,11 +35,11 @@ namespace EasySteamSocketsExample.Forms
 
         // Networking Events
 
-        private void ChatMessageReceived(ChatMessage chatMessage)
+        private void ChatMessageReceived(ChatMessage chatMessage, NetIdentity identity)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action(() => ChatMessageReceived(chatMessage)));
+                Invoke(new Action(() => ChatMessageReceived(chatMessage, identity)));
                 return;
             }
 
@@ -49,11 +50,11 @@ namespace EasySteamSocketsExample.Forms
         }
 
 
-        private void PlayerPositionUpdateMessageReceived(PlayerPositionUpdateMessage playerPositionUpdateMessage)
+        private void PlayerPositionUpdateMessageReceived(PlayerPositionUpdateMessage playerPositionUpdateMessage, NetIdentity identity)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action(() => PlayerPositionUpdateMessageReceived(playerPositionUpdateMessage)));
+                Invoke(new Action(() => PlayerPositionUpdateMessageReceived(playerPositionUpdateMessage, identity)));
                 return;
             }
             

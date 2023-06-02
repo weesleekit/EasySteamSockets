@@ -23,8 +23,8 @@ namespace EasySteamSockets
 
             JSONDeserialiser.CreateTypesDictionary(jsonPayloadTypes);
 
-
-            PayloadEventAggregator.StoreJSONPayloadTypesDuringInitialisation(bytePayloadTypes, jsonPayloadTypes);
+            ClientPayloadEventAggregator.StoreJSONPayloadTypesDuringInitialisation(bytePayloadTypes, jsonPayloadTypes);
+            ServerPayloadEventAggregator.StoreJSONPayloadTypesDuringInitialisation(bytePayloadTypes, jsonPayloadTypes);
 
             Initialised = true;
         }

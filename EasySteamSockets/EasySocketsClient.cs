@@ -12,7 +12,7 @@ namespace EasySteamSockets
 
         public ILogger? Logger { get; set; }
 
-        public PayloadEventAggregator Events = new PayloadEventAggregator();
+        public ClientPayloadEventAggregator Events = new ClientPayloadEventAggregator();
 
 
         // Public Methods

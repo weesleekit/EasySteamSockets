@@ -12,7 +12,7 @@ namespace EasySteamSockets
 
         public ILogger? Logger { get; set; }
 
-        public PayloadEventAggregator Events = new PayloadEventAggregator();
+        public ServerPayloadEventAggregator Events = new ServerPayloadEventAggregator();
 
 
         // Public Methods
@@ -80,7 +80,7 @@ namespace EasySteamSockets
 
             Logger?.Log($"Server OnMessage, message type: {message.GetType().Name}");
 
-            Events.Notify(message);
+            Events.Notify(message, identity);
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Steamworks.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EasySteamSockets.Classes.Payloads
 {
-    public class PayloadEventAggregator
+    public class ClientPayloadEventAggregator
     {
         // Static Cache From Assembly
 
@@ -13,8 +14,8 @@ namespace EasySteamSockets.Classes.Payloads
 
         public static void StoreJSONPayloadTypesDuringInitialisation(IEnumerable<Type> bytePayloadTypes, IEnumerable<Type> jsonPayloadTypes)
         {
-            PayloadEventAggregator.bytePayloadTypes = bytePayloadTypes.ToArray();
-            PayloadEventAggregator.jsonPayloadTypes = jsonPayloadTypes.ToArray();
+            ClientPayloadEventAggregator.bytePayloadTypes = bytePayloadTypes.ToArray();
+            ClientPayloadEventAggregator.jsonPayloadTypes = jsonPayloadTypes.ToArray();
         }
 
 
@@ -30,7 +31,7 @@ namespace EasySteamSockets.Classes.Payloads
 
         // Constructor
 
-        public PayloadEventAggregator()
+        public ClientPayloadEventAggregator()
         {
             AddPayloadsToDictionary(bytePayloadTypes);
             AddPayloadsToDictionary(jsonPayloadTypes);

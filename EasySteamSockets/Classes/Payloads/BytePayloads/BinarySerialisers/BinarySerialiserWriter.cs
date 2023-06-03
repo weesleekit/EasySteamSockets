@@ -32,6 +32,11 @@ namespace EasySteamSockets.Classes.Payloads.BytePayloads.BinarySerialisers
             binaryWriter.Write(field);
         }
 
+        public override void Serialise(ref uint field)
+        {
+            binaryWriter.Write(field);
+        }
+
         public override void Serialise(ref float field)
         {
             binaryWriter.Write(field);

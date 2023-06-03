@@ -32,6 +32,11 @@ namespace EasySteamSockets.Classes.Payloads.BytePayloads.BinarySerialisers
             field = binaryReader.ReadInt32();
         }
 
+        public override void Serialise(ref uint field)
+        {
+            field = binaryReader.ReadUInt32();
+        }
+
         public override void Serialise(ref float field)
         {
             field = binaryReader.ReadSingle();

@@ -22,6 +22,9 @@ namespace EasySteamSocketsExample.Forms
         {
             InitializeComponent();
             this.port = port;
+
+            // https://github.com/Facepunch/Facepunch.Steamworks/issues/687
+            SteamNetworkingUtils.InitRelayNetworkAccess();
         }
 
 

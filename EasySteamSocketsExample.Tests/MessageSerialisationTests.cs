@@ -84,6 +84,42 @@ namespace SteamSockets.Tests
             response.Should().BeEquivalentTo(payloadBeingSent);
         }
 
+        [Fact]
+        public void GivenEmptyJSONPayload_GetSamePayloadBack()
+        {
+            // Arrange
+
+            EasySteamSockets.Initialiser.Initialise(Assembly.GetAssembly(typeof(EmptyMessage)));
+
+            EmptyMessage payloadBeingSent = new()
+            {
+
+            };
+
+            byte[] bytes = payloadBeingSent.GetByteArray();
+
+            (IntPtr intPtr, int size) = ConvertFromByteArray(bytes);
+
+            // Act
+
+            AbstractPayload? response;
+
+            try
+            {
+                response = Deserialiser.IntPtrToPayload(intPtr, size);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(intPtr);
+            }
+
+            // Assert
+
+            response.Should().NotBeNull();
+
+            response.GetType().Should().BeSameAs(payloadBeingSent.GetType());
+        }
+
         private static (IntPtr intPtr, int size) ConvertFromByteArray(byte[] arrayToConvert)
         {
             int size = arrayToConvert.Length;

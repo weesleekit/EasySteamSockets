@@ -51,6 +51,9 @@ namespace EasySteamSocketsExample.Forms
         {
             NetAddress netAddress = NetAddress.From(textBoxIP.Text, port);
 
+            // https://github.com/Facepunch/Facepunch.Steamworks/issues/687
+            SteamNetworkingUtils.InitRelayNetworkAccess();
+
             client = SteamNetworkingSockets.ConnectNormal<EasySocketsClient>(netAddress);
             client.Logger = this;
 
